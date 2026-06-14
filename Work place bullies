@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workplace Bullies — Abate Bekele Mergia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:     #1a4a2e;
+      --forest-dk:  #0f2e1b;
+      --forest-lt:  #2d6b46;
+      --gold:       #c9a84c;
+      --gold-lt:    #e8d5a3;
+      --gold-dk:    #8b6914;
+      --cream:      #faf7f0;
+      --paper:      #f4efe4;
+      --ink:        #1a1a1a;
+      --muted:      #5a6b5c;
+      --white:      #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── GOLD ORNAMENT SVG ── */
+    .ornament {
+      display: block;
+      margin: 0 auto;
+      color: var(--gold);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 3rem;
+      background: rgba(15,46,27,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.3);
+    }
+
+    .nav-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.25s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--forest-dk) !important;
+      padding: 0.4rem 1.1rem;
+      border-radius: 2px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { background: var(--gold-lt) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--forest-dk) 0%, var(--forest) 50%, var(--forest-lt) 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 6rem 5% 5rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 90% 20%, rgba(201,168,76,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* floating leaf shapes */
+    .hero-bg-leaf {
+      position: absolute;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+
+    .hero-bg-leaf.left {
+      left: -80px; bottom: -60px;
+      width: 500px; height: 500px;
+      background: radial-gradient(ellipse at center, var(--gold) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-bg-leaf.right {
+      right: -100px; top: 10%;
+      width: 400px; height: 600px;
+      background: radial-gradient(ellipse at center, var(--gold) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-text { color: var(--white); }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-eyebrow span {
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      height: 1px;
+      width: 40px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.2rem;
+      color: var(--white);
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+
+    .hero-title-gold {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: 0.06em;
+      background: linear-gradient(135deg, var(--gold-lt) 0%, var(--gold) 40%, var(--gold-dk) 70%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block;
+      margin-bottom: 1rem;
+      text-shadow: none;
+    }
+
+    .hero-subtitle {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-size: 1.35rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .gold-rule {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      margin: 1.5rem 0;
+    }
+
+    .hero-desc {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.75;
+      margin-bottom: 2rem;
+      max-width: 440px;
+    }
+
+    .hero-author {
+      margin-bottom: 2.5rem;
+    }
+
+    .author-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.3rem;
+    }
+
+    .author-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--gold-lt);
+      letter-spacing: 0.08em;
+    }
+
+    .author-creds {
+      font-family: 'Crimson Pro', serif;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.25s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold), var(--gold-dk));
+      color: var(--forest-dk);
+      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(201,168,76,0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1.5px solid rgba(201,168,76,0.5);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.1);
+      transform: translateY(-3px);
+    }
+
+    /* ── BOOK COVER DISPLAY ── */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover-wrapper {
+      position: relative;
+    }
+
+    .cover-glow {
+      position: absolute;
+      inset: -30px;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.25) 0%, transparent 70%);
+      animation: glow-pulse 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+
+    .book-img {
+      width: 320px;
+      border-radius: 4px 14px 14px 4px;
+      box-shadow:
+        -8px 0 0 rgba(0,0,0,0.5),
+        -12px 6px 30px rgba(0,0,0,0.6),
+        30px 30px 80px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(201,168,76,0.2);
+      display: block;
+      position: relative;
+      z-index: 2;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+      50% { transform: translateY(-14px) rotate(-1.5deg); }
+    }
+
+    .medallion {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold), var(--gold-dk));
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4), inset 0 0 0 4px rgba(255,255,255,0.3);
+      border: 3px solid rgba(255,255,255,0.4);
+      padding: 0.4rem;
+    }
+
+    .medallion-text {
+      font-family: 'Cinzel', serif;
+      font-size: 0.38rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--forest-dk);
+      line-height: 1.4;
+    }
+
+    /* ── SECTIONS ── */
+    .section { padding: 6rem 5%; }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-eyebrow span {
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+    }
+
+    .section-eyebrow::before,
+    .section-eyebrow::after {
+      content: '';
+      height: 1px;
+      width: 50px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-weight: 700;
+      color: var(--forest-dk);
+      text-align: center;
+      letter-spacing: 0.04em;
+      margin-bottom: 3rem;
+      line-height: 1.25;
+    }
+
+    /* ── STATS ── */
+    .stats-band {
+      background: linear-gradient(135deg, var(--forest-dk), var(--forest));
+      padding: 3.5rem 5%;
+      border-top: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+
+    .stats-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .stat-divider {
+      width: 1px;
+      background: rgba(201,168,76,0.2);
+      margin: 0 auto;
+    }
+
+    .stat-number {
+      font-family: 'Cinzel', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--cream); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .body-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.13rem;
+      color: #3a3a3a;
+      line-height: 1.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .pull-quote {
+      border-left: 3px solid var(--gold);
+      padding: 1.5rem 1.5rem 1.5rem 2rem;
+      margin: 2rem 0;
+      background: linear-gradient(to right, rgba(201,168,76,0.08), transparent);
+    }
+
+    .pull-quote blockquote {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
+      font-style: italic;
+      color: var(--forest-dk);
+      line-height: 1.6;
+    }
+
+    .pull-quote cite {
+      display: block;
+      margin-top: 0.6rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-dk);
+    }
+
+    /* guide badge */
+    .guide-badge {
+      background: linear-gradient(135deg, var(--forest-dk), var(--forest));
+      border: 2px solid rgba(201,168,76,0.4);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide-badge::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 20px,
+        rgba(201,168,76,0.02) 20px, rgba(201,168,76,0.02) 21px
+      );
+    }
+
+    .guide-badge-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .guide-badge-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .guide-badge-desc {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      position: relative;
+    }
+
+    /* ── READ SECTION ── */
+    #read {
+      background: linear-gradient(to bottom, var(--forest-dk), #0a2018);
+      padding: 5rem 5%;
+    }
+
+    #read h2 { color: var(--white); }
+    #read .section-eyebrow span { color: var(--gold-lt); }
+    #read .section-eyebrow::before,
+    #read .section-eyebrow::after { background: var(--gold-lt); }
+
+    .read-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .read-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .read-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--gold-dk), var(--gold), var(--gold-dk));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .read-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-4px);
+    }
+
+    .read-card:hover::before { opacity: 1; }
+
+    .read-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .read-card-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .read-card-desc {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .read-btn {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1.5px solid rgba(201,168,76,0.5);
+      color: var(--gold-lt);
+      border-radius: 2px;
+      transition: all 0.2s;
+    }
+
+    .read-btn:hover {
+      background: var(--gold);
+      color: var(--forest-dk);
+      border-color: var(--gold);
+    }
+
+    .read-btn-primary {
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+      color: var(--forest-dk);
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+
+    .read-btn-primary:hover {
+      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    }
+
+    /* ── CHAPTERS ── */
+    #chapters { background: var(--paper); }
+
+    .chapters-list { margin-top: 1rem; }
+
+    .chapter-item {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      transition: all 0.2s;
+      align-items: start;
+    }
+
+    .chapter-item:first-child { border-top: 1px solid rgba(201,168,76,0.2); }
+
+    .chapter-num {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: rgba(201,168,76,0.3);
+      line-height: 1;
+      transition: color 0.2s;
+      padding-top: 0.2rem;
+    }
+
+    .chapter-item:hover .chapter-num { color: var(--gold); }
+
+    .chapter-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--forest-dk);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.03em;
+    }
+
+    .chapter-desc {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── RESEARCH ── */
+    #research {
+      background: linear-gradient(135deg, var(--forest) 0%, var(--forest-dk) 100%);
+    }
+
+    #research h2 { color: var(--white); }
+    #research .section-eyebrow span { color: var(--gold-lt); }
+    #research .section-eyebrow::before,
+    #research .section-eyebrow::after { background: var(--gold-lt); }
+
+    .questions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+    }
+
+    .q-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+      padding: 1.75rem;
+      display: flex;
+      gap: 1.2rem;
+      align-items: start;
+      transition: all 0.2s;
+    }
+
+    .q-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(201,168,76,0.35);
+    }
+
+    .q-num {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--gold);
+      opacity: 0.6;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+
+    .q-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.65;
+    }
+
+    /* ── AUDIENCE ── */
+    #audience { background: var(--cream); }
+
+    .audience-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .audience-card {
+      background: var(--white);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 6px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+
+    .audience-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(to right, var(--forest), var(--gold));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .audience-card:hover { transform: translateY(-4px); box-shadow: 0 10px 40px rgba(0,0,0,0.1); }
+    .audience-card:hover::after { opacity: 1; }
+
+    .audience-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+
+    .audience-title {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--forest-dk);
+      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .audience-desc {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── AUTHOR ── */
+    #author {
+      background: linear-gradient(to bottom, var(--forest-dk), #0a1f12);
+      padding: 6rem 5%;
+    }
+
+    .author-section {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .author-portrait {
+      position: relative;
+    }
+
+    .author-portrait-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(145deg, var(--forest), var(--forest-lt));
+      border-radius: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(201,168,76,0.3);
+      gap: 0.75rem;
+    }
+
+    .author-portrait-placeholder span {
+      font-size: 4rem;
+    }
+
+    .author-portrait-placeholder p {
+      font-family: 'Cinzel', serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .author-gold-line {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), var(--gold-dk));
+      margin-top: 1rem;
+    }
+
+    .author-info { color: var(--white); }
+
+    .author-info .section-eyebrow { justify-content: flex-start; }
+    .author-info .section-eyebrow::after { display: none; }
+
+    .author-full-name {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--gold-lt), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+
+    .author-credentials {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+    }
+
+    .author-bio {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    .author-bio + .author-bio { margin-top: 1rem; }
+
+    /* ── CTA ── */
+    #cta {
+      background: linear-gradient(135deg, #b8901a, #d4a730, #c9a84c, #8b6914);
+      padding: 5rem 5%;
+      text-align: center;
+    }
+
+    #cta h2 { color: var(--forest-dk); }
+
+    .cta-subtitle {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1.25rem;
+      color: rgba(15,46,27,0.75);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.6;
+    }
+
+    .btn-forest {
+      background: var(--forest-dk);
+      color: var(--gold);
+      border: 2px solid var(--forest-dk);
+    }
+
+    .btn-forest:hover {
+      background: transparent;
+      color: var(--forest-dk);
+      border-color: var(--forest-dk);
+      transform: translateY(-3px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #070e09;
+      padding: 2.5rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+
+    .footer-brand {
+      font-family: 'Cinzel', serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+    }
+
+    .footer-text {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 0.9rem 1.5rem; }
+      .nav-links { display: none; }
+
+      .hero { padding: 7rem 5% 4rem; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 3rem;
+      }
+
+      .hero-visual { order: -1; }
+      .book-img { width: 220px; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-desc { margin: 0 auto 2rem; }
+      .hero-btns { justify-content: center; }
+      .gold-rule { margin: 1.5rem auto; }
+
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .about-grid,
+      .author-section { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .read-options,
+      .audience-grid { grid-template-columns: 1fr; }
+
+      .questions-grid { grid-template-columns: 1fr; }
+
+      .chapter-item { grid-template-columns: 50px 1fr; gap: 1rem; }
+
+      footer { flex-direction: column; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .book-img { animation: none !important; }
+      .cover-glow { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-brand">Workplace Bullies</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#read">Read</a></li>
+      <li><a href="#chapters">Chapters</a></li>
+      <li><a href="#author">Author</a></li>
+      <li><a href="#cta" class="nav-cta">Get the Book</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-leaf left"></div>
+    <div class="hero-bg-leaf right"></div>
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow"><span>A Guide to Awareness, Healing &amp; Healthy Workplaces</span></div>
+        <div class="hero-title">Workplace</div>
+        <span class="hero-title-gold">BULLIES</span>
+        <p class="hero-subtitle">The Hidden Faces Behind the Smile</p>
+        <div class="gold-rule"></div>
+        <p class="hero-desc">
+          A multidimensional investigation into workplace bullying — its hidden causes, devastating consequences, and the paths toward organizations built on dignity, fairness, and respect.
+        </p>
+        <div class="hero-author">
+          <p class="author-label">Written by</p>
+          <p class="author-name">Abate Bekele Mergia</p>
+          <p class="author-creds">AB, BA, HD, MTS, MA</p>
+        </div>
+        <div class="hero-btns">
+          <a href="#read" class="btn btn-gold">📖 Read the Book</a>
+          <a href="#chapters" class="btn btn-outline">Explore Chapters</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="cover-wrapper">
+          <div class="cover-glow"></div>
+          <img src="cover.png" alt="Workplace Bullies book cover — The Hidden Faces Behind the Smile by Abate Bekele Mergia" class="book-img" />
+          <div class="medallion">
+            <div class="medallion-text">A Guide to<br/>Awareness<br/>Healing &amp;<br/>Healthy<br/>Workplaces</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-band">
+    <div class="stats-grid">
+      <div>
+        <div class="stat-number">8</div>
+        <div class="stat-label">Core Research Questions</div>
+      </div>
+      <div>
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Fields of Inquiry</div>
+      </div>
+      <div>
+        <div class="stat-number">7</div>
+        <div class="stat-label">Sectors Examined</div>
+      </div>
+      <div>
+        <div class="stat-number">1</div>
+        <div class="stat-label">Essential Message: Dignity</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="section-eyebrow"><span>About the Book</span></div>
+      <h2>More Than a Problem —<br />A Call to Act</h2>
+      <div class="about-grid">
+        <div>
+          <p class="body-text">
+            Work is where people invest their skills, establish bonds, support society, and pursue self-actualization. A healthy work environment encourages emotional well-being, cooperation, productivity, and creativity.
+          </p>
+          <p class="body-text">
+            Yet not every workplace offers that atmosphere. Around the globe, employees face abuse, manipulation, exclusion, hostility, and harassment from supervisors, coworkers, and organizational leaders. <em>Workplace Bullies</em> shines a light on these hidden patterns.
+          </p>
+          <div class="pull-quote">
+            <blockquote>
+              "Workplace bullying is a series of hostile and unethical messages directed at a person over a long period of time."
+            </blockquote>
+            <cite>— Heinz Leymann, 1996</cite>
+          </div>
+          <p class="body-text">
+            This research examines workplace bullying through psychological, sociological, organizational, legal, and ethical lenses — offering not just analysis, but actionable paths forward for every stakeholder.
+          </p>
+        </div>
+        <div>
+          <div class="guide-badge">
+            <span class="guide-badge-icon">🌿</span>
+            <div class="guide-badge-title">A Guide to Awareness, Healing &amp; Healthy Workplaces</div>
+            <p class="guide-badge-desc">
+              This study conveys a message of hope alongside rigorous academic inquiry. Organizations have the power to transform toxic environments into communities of mutual support and trust. By comprehending workplace bullying and applying effective solutions, employers and workers can collaborate to establish workplaces where people <em>thrive</em> — rather than merely survive.
+            </p>
+          </div>
+          <div style="margin-top: 1.5rem;">
+            <p class="body-text">
+              Bullying affects healthcare, education, government, religious institutions, corporate enterprises, and non-profits alike. Its costs — financial, emotional, and social — ripple far beyond any single victim, touching families, organizations, and communities.
+            </p>
+            <p class="body-text">
+              Despite growing awareness, workplace bullying remains dramatically underreported. Many victims fear retaliation, social exclusion, or damage to their professional reputation. This book gives them language, context, and solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- READ THE BOOK -->
+  <section id="read">
+    <div class="section-inner">
+      <div class="section-eyebrow"><span>Read the Book</span></div>
+      <h2>Start Reading Today</h2>
+      <div class="read-options">
+        <div class="read-card">
+          <span class="read-icon">📱</span>
+          <div class="read-card-title">Kindle &amp; eBook</div>
+          <p class="read-card-desc">Available on Amazon Kindle and all major e-reader platforms. Start reading within minutes.</p>
+          <a href="https://www.amazon.com/s?k=Workplace+Bullies+Abate+Bekele+Mergia" target="_blank" rel="noopener" class="read-btn read-btn-primary">Buy on Amazon</a>
+        </div>
+        <div class="read-card">
+          <span class="read-icon">📗</span>
+          <div class="read-card-title">Paperback</div>
+          <p class="read-card-desc">Order a physical copy for your office, library, or personal collection. Ships worldwide.</p>
+          <a href="https://www.amazon.com/s?k=Workplace+Bullies+Abate+Bekele+Mergia" target="_blank" rel="noopener" class="read-btn">Order Paperback</a>
+        </div>
+        <div class="read-card">
+          <span class="read-icon">🎧</span>
+          <div class="read-card-title">Contact the Author</div>
+          <p class="read-card-desc">For bulk orders, speaking engagements, or workshops — connect with Abate Bekele Mergia directly.</p>
+          <a href="mailto:contact@example.com" class="read-btn">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTERS -->
+  <section class="section" id="chapters">
+    <div class="section-inner">
+      <div class="section-eyebrow"><span>Inside the Book</span></div>
+      <h2>What You'll Find</h2>
+      <div class="chapters-list">
+        <div class="chapter-item">
+          <div class="chapter-num">I</div>
+          <div>
+            <div class="chapter-name">Introduction &amp; Background</div>
+            <div class="chapter-desc">Defining workplace bullying, its historical roots, and why it demands serious organizational and societal attention in the 21st century.</div>
+          </div>
+        </div>
+        <div class="chapter-item">
+          <div class="chapter-num">II</div>
+          <div>
+            <div class="chapter-name">Causes &amp; Contributing Factors</div>
+            <div class="chapter-desc">How globalization, fierce competition, poor leadership, and low accountability create fertile ground for toxic workplace dynamics to take root.</div>
+          </div>
+        </div>
+        <div class="chapter-item">
+          <div class="chapter-num">III</div>
+          <div>
+            <div class="chapter-name">The Hidden Faces: Types &amp; Manifestations</div>
+            <div class="chapter-desc">Verbal abuse, social exclusion, public humiliation, rumor-spreading, excessive critique, and the abuse of power — recognizing bullying across its many subtle and overt forms.</div>
+          </div>
+        </div>
+        <div class="chapter-item">
+          <div class="chapter-num">IV</div>
+          <div>
+            <div class="chapter-name">Consequences &amp; Impact</div>
+            <div class="chapter-desc">Psychological, physical, organizational, and societal costs — from individual burnout and anxiety to institutional reputation damage and economic loss across industries.</div>
+          </div>
+        </div>
+        <div class="chapter-item">
+          <div class="chapter-num">V</div>
+          <div>
+            <div class="chapter-name">Legal &amp; Policy Frameworks</div>
+            <div class="chapter-desc">Existing workplace protections, reporting structures, and the regulatory landscape — examining what legal safeguards exist and where the gaps remain.</div>
+          </div>
+        </div>
+        <div class="chapter-item">
+          <div class="chapter-num">VI</div>
+          <div>
+            <div class="chapter-name">Toward Healing &amp; Healthy Workplaces</div>
+            <div class="chapter-desc">Actionable strategies for leaders, HR professionals, and employees to build workplaces grounded in respect, inclusion, ethical leadership, and lasting dignity.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH QUESTIONS -->
+  <section class="section" id="research">
+    <div class="section-inner">
+      <div class="section-eyebrow"><span>Research Foundation</span></div>
+      <h2>Eight Questions<br />Driving This Study</h2>
+      <div class="questions-grid">
+        <div class="q-card"><div class="q-num">01</div><p class="q-text">How is workplace bullying defined by modern scholars and practitioners, and what exactly does it entail?</p></div>
+        <div class="q-card"><div class="q-num">02</div><p class="q-text">What historical elements led to the recognition of workplace bullying as a serious organizational and social problem?</p></div>
+        <div class="q-card"><div class="q-num">03</div><p class="q-text">What are the main causes and environmental factors that allow bullying in the workplace to take root?</p></div>
+        <div class="q-card"><div class="q-num">04</div><p class="q-text">What are the common manifestations of workplace bullying in contemporary organizations across all sectors?</p></div>
+        <div class="q-card"><div class="q-num">05</div><p class="q-text">What are the psychological, emotional, physical, social, and professional consequences for victims of bullying?</p></div>
+        <div class="q-card"><div class="q-num">06</div><p class="q-text">What effects does workplace harassment have on broader organizational performance and on society at large?</p></div>
+        <div class="q-card"><div class="q-num">07</div><p class="q-text">What legal, organizational, and individual remedies currently exist for addressing and resolving workplace bullying?</p></div>
+        <div class="q-card"><div class="q-num">08</div><p class="q-text">What strategies can firms and leaders use to prevent bullying and build genuinely healthy, respectful workplace cultures?</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIENCE -->
+  <section class="section" id="audience">
+    <div class="section-inner">
+      <div class="section-eyebrow"><span>Who Should Read This</span></div>
+      <h2>For Everyone Touched<br />by the Workplace</h2>
+      <div class="audience-grid">
+        <div class="audience-card"><span class="audience-icon">👤</span><div class="audience-title">Employees</div><p class="audience-desc">Recognize dangerous situations, understand your rights, and advocate for respectful treatment — with knowledge as your foundation.</p></div>
+        <div class="audience-card"><span class="audience-icon">🏢</span><div class="audience-title">Organizational Leaders</div><p class="audience-desc">Understand the real costs of toxic cultures and gain evidence-based tools to build environments where people want to work.</p></div>
+        <div class="audience-card"><span class="audience-icon">📋</span><div class="audience-title">HR Professionals</div><p class="audience-desc">Design effective policies, reporting procedures, and intervention strategies that create safe and inclusive workplaces for all.</p></div>
+        <div class="audience-card"><span class="audience-icon">⚖️</span><div class="audience-title">Policymakers</div><p class="audience-desc">Gain insights that inform meaningful discussions around workplace regulations, worker protections, and organizational accountability.</p></div>
+        <div class="audience-card"><span class="audience-icon">🔬</span><div class="audience-title">Researchers &amp; Academics</div><p class="audience-desc">A rigorous, multidisciplinary contribution to existing literature on organizational behavior, psychology, and workplace ethics.</p></div>
+        <div class="audience-card"><span class="audience-icon">🤝</span><div class="audience-title">Advocates &amp; Allies</div><p class="audience-desc">Anyone committed to creating workplaces where dignity, fairness, and respect are the standard — not the exception.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHOR -->
+  <section id="author">
+    <div class="author-section">
+      <div class="author-portrait">
+        <div class="author-portrait-placeholder">
+          <span>✍️</span>
+          <p>Author Photo</p>
+        </div>
+        <div class="author-gold-line"></div>
+      </div>
+      <div class="author-info">
+        <div class="section-eyebrow"><span>About the Author</span></div>
+        <div class="author-full-name">Abate Bekele Mergia</div>
+        <div class="author-credentials">AB &nbsp;·&nbsp; BA &nbsp;·&nbsp; HD &nbsp;·&nbsp; MTS &nbsp;·&nbsp; MA</div>
+        <p class="author-bio">
+          Abate Bekele Mergia brings a rare multidisciplinary perspective to the study of workplace dynamics, drawing on training spanning theology, social science, leadership, and organizational behavior.
+        </p>
+        <p class="author-bio">
+          Through years of research and observation across diverse institutional settings — including religious organizations, corporate environments, healthcare, and education — he has developed a deep understanding of how power, authority, and human dignity intersect in the workplace.
+        </p>
+        <p class="author-bio">
+          His work is driven by a single conviction: every person deserves a workplace where they can realize their full potential, free from bullying, harassment, and fear. <em>Workplace Bullies: The Hidden Faces Behind the Smile</em> is his contribution to making that vision a reality.
+        </p>
+        <div style="margin-top: 2rem;">
+          <a href="#read" class="btn btn-gold">📖 Read the Book</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta">
+    <div class="section-inner">
+      <div class="section-eyebrow" style="--gold-dk: #1a4a2e;"><span style="color: var(--forest-dk); font-family: 'Cinzel', serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;">A Message of Hope</span></div>
+      <h2 style="color: var(--forest-dk);">Every Person Deserves<br />a Workplace of Dignity</h2>
+      <p class="cta-subtitle">Join the conversation about building organizations where people thrive — not merely survive — free from bullying, harassment, and fear.</p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="https://www.amazon.com/s?k=Workplace+Bullies+Abate+Bekele+Mergia" target="_blank" rel="noopener" class="btn btn-forest">📗 Order Your Copy</a>
+        <a href="#chapters" class="btn btn-forest" style="background: transparent; color: var(--forest-dk); border: 2px solid var(--forest-dk);">Explore the Book</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">Workplace Bullies</span>
+    <span class="footer-text">© 2025 Abate Bekele Mergia &nbsp;·&nbsp; All rights reserved</span>
+    <span class="footer-text">AB, BA, HD, MTS, MA</span>
+  </footer>
+
+</body>
+</html>
